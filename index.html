@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>My Project 5.2 Health Tracker</title>
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+  <section id="mytracker">
+    <header id="header">
+      <h1 class="text-center">Health Tracker</h1>
+      <h2 id="total" class="text-center">Total Input Calories Today: <span>0</span> </h2>
+    </header>
+    <div class="row">
+      <div class="col-md-6">
+        <form id="search" class="form-inline">
+          <input type="text" id="search-input" class="form-control" placeholder="Heathy?" autofocus>
+          <button type="submit" class="search-btn btn btn-default">Search</button>
+        </form>
+        <ul id="search-results"></ul>
+      </div>
+      
+      <section class="col-md-6" id="main">
+        <div class="food-detail">
+          <h4 class="detail-name">Food name</h4>
+          <h5 class="detail-brand"></h5>
+          <label for="serving-size">Serving Size: </label>
+          <input type="text" id="serving-size" value="1">
+          <span class="detail-cal">Calories: </span>
+        </div>
+        <button class="add-btn btn btn-default">Add</button>
+      
+        <ul id="food-list"></ul>
+      </section> 
+    </div>
+  </section>
+
+  <script type="text/template" id="food-item">
+    <div class="food-container">
+      <p><h4><%= title %></h4></p>
+      <span>Quantity: <%= quantity %></span>
+      <span>Calorie: <%= calorie %></span>
+      <button class="destroy">Delete</button>
+    </div> 
+  </script>
+
+  <script type="text/template" id="search-template">
+    <li class="search-item">
+      <h4><%= name %></h4>
+      <h5><%= brand %></h5>
+      <span><%= calories %> Calories</span>
+    </li>
+  </script>
+
+  <script src="js/lib/underscore-min.js"></script>
+  <script src="js/lib/jquery.min.js"></script>
+  <script src="js/lib/backbone-min.js"></script>
+  <script src="js/lib/backbone.localStorage-min.js"></script>
+
+  <script src="js/models.js"></script>
+  <script src="js/collection.js"></script>
+  <script src="js/view-item.js"></script>
+  <script src="js/view-app.js"></script>
+  <script src="js/view-search.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

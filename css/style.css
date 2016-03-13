@@ -1,0 +1,32 @@
+body {
+    background-color: #eee;
+}
+
+ul{
+  list-style-type: none;
+}
+
+.food-container {
+    /*outline: 1px solid #aaa;*/
+    width: 350px;
+    height: 80px;
+    background-color: #fff;
+    float: left;
+    margin: 5px;
+    padding: 5px;
+}
+
+.food-container button {
+    float: right;
+    vertical-align: middle;
+    margin: 0;
+}
+
+#search {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#serving-size {
+    width: 30px;
+}
