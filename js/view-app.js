@@ -20,6 +20,7 @@ var app = app || {};
       this.$input = $('#search-input');
       this.$results = $('#search-results');
 
+      this.$detail = $('.food-detail');
       this.detailName = $('.detail-name');
       this.detailQty = $('.serving-size');
       this.detailCal = $('.detail-cal span');
@@ -29,6 +30,7 @@ var app = app || {};
 
       this.listenTo(app.foods, 'change', this.render);
       this.listenTo(app.foods, 'add', this.renderFood);
+      this.listenTo(app.foods, 'reset', this.addAll);
 
       // this.render();
       app.foods.fetch({reset: true});
@@ -43,21 +45,17 @@ var app = app || {};
     },
 
     render: function() {
-
-      var total = 0;
-      _.each(app.foods, function(food) {
-        console.log(total);
-        total += food.get('calorie');
-      });
-
-      this.$total.text(total);
-      // console.log(total);
-      return this;
+      this.$total.text(app.foods.totalCals());
     },
 
     renderFood: function(item) {
       var foodView = new app.FoodView({ model: item });
       this.$list.append(foodView.render().el);
+    },
+
+    addAll: function () {
+      this.$list.html('');
+      app.foods.each(this.renderFood, this);
     },
 
     // Generate the attributes for a new Todo item.
@@ -80,7 +78,7 @@ var app = app || {};
     searchFood: function(keyword) {
       var self = this;
       // var keyword = $.trim(self.$input.val());
-      self.$results.html('');
+      this.$results.html('');
       var nutritionURL = 'https://api.nutritionix.com/v1_1/search/'+ keyword + '?results=0%3A15&cal_min=0&cal_max=50000&fields=item_name%2Cbrand_name%2Cnf_calories&appId=1dad01c5&appKey=a4ef0e3cc84c0a803eb5a56c3086f895';
       $.getJSON(nutritionURL).done(function(data) {
         var res = data.hits;
@@ -109,7 +107,8 @@ var app = app || {};
 
       // select food and display on detail section
       $('#search-results li').click(function() {
-        
+        self.$detail.removeClass('hidden');
+        $('.add-btn').removeClass('hidden');
         var name = $(this).find('h4').text();
         var cal = $(this).find('span').text();
 

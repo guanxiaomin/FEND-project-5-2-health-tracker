@@ -11,6 +11,13 @@ var app = app || {};
     // Save all of the food items under the `"foods"` namespace.
     localStorage: new Backbone.LocalStorage('foods-backbone'),
 
+    totalCals: function() {
+      var total = 0;
+      this.each(function(food) {
+        total += food.get('calorie');
+      });
+      return total;
+    },
     // We keep the Food Items in sequential order, despite being saved by unordered
     // GUID in the database. This generates the next order number for new items.
     nextOrder: function () {
