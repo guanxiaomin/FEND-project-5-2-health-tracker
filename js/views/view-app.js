@@ -37,8 +37,8 @@ var app = app || {};
       
       // submit form to request ajax
       $('#search').submit(function() {
-        // var keyword = $.trim(self.$input.val());
-        var keyword = 'apple';
+        var keyword = $.trim(self.$input.val());
+        // var keyword = 'apple'; // for view test
         self.searchFood(keyword);
         return false;
       });
@@ -50,7 +50,7 @@ var app = app || {};
 
     renderFood: function(item) {
       var foodView = new app.FoodView({ model: item });
-      this.$list.append(foodView.render().el);
+      this.$list.prepend(foodView.render().el);
     },
 
     addAll: function () {
@@ -71,13 +71,12 @@ var app = app || {};
       // console.log(this.newAttributes());
       // console.log(app.foods.length);
       app.foods.create(this.newAttributes());
-      // this.$input.val('');
+      this.$input.val('');
     },
 
     // Get Ajax and search list display
     searchFood: function(keyword) {
       var self = this;
-      // var keyword = $.trim(self.$input.val());
       this.$results.html('');
       var nutritionURL = 'https://api.nutritionix.com/v1_1/search/'+ keyword + '?results=0%3A15&cal_min=0&cal_max=50000&fields=item_name%2Cbrand_name%2Cnf_calories&appId=1dad01c5&appKey=a4ef0e3cc84c0a803eb5a56c3086f895';
       $.getJSON(nutritionURL).done(function(data) {
