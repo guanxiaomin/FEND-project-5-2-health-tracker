@@ -2,8 +2,22 @@ body {
     background-color: #eee;
 }
 
+header {
+    background: #b3b3b3
+}
 ul{
   list-style-type: none;
+}
+
+form {
+    padding-left: 40px;
+}
+
+.search-item {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .food-container {
@@ -22,11 +36,6 @@ ul{
     margin: 0;
 }
 
-#search {
-    margin-left: auto;
-    margin-right: auto;
-}
-
-#serving-size {
+#serving-size { 
     width: 30px;
 }

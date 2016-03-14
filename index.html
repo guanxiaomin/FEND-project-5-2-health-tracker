@@ -10,7 +10,7 @@
   <section id="mytracker">
     <header id="header">
       <h1 class="text-center">Health Tracker</h1>
-      <h2 id="total" class="text-center">Total Input Calories Today: <span>0</span> </h2>
+      <h3 id="total" class="text-center">Total Input Today: <span>0</span> Calories</h3>
     </header>
     <div class="row">
       <div class="col-md-6">
@@ -27,7 +27,7 @@
           <h5 class="detail-brand"></h5>
           <label for="serving-size">Serving Size: </label>
           <input type="text" id="serving-size" value="1">
-          <span class="detail-cal">Calories: </span>
+          <span class="detail-cal">0 Calories</span>
         </div>
         <button class="add-btn btn btn-default">Add</button>
       
@@ -47,9 +47,14 @@
 
   <script type="text/template" id="search-template">
     <li class="search-item">
-      <h4><%= name %></h4>
-      <h5><%= brand %></h5>
-      <span><%= calories %> Calories</span>
+      <div>
+        <h4><%= name %></h4>
+        <h5><%= brand %></h5>
+      </div>
+      <div>
+        <span><%= calories %></span><br>
+        <small>Calories</small>
+      </div>
     </li>
   </script>
 
