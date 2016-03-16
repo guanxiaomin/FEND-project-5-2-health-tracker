@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>My Project 5.2 Health Tracker</title>
   <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-  <section id="mytracker">
+  <section id="mytracker" class="container">
     <header id="header">
       <h1 class="text-center">Health Tracker</h1>
       <h3 id="total" class="text-center">Total Input Today: <span>0</span> Calories</h3>
     </header>
     <div class="row">
-      <div class="col-md-6">
-        <form id="search" class="form-inline">
+      <div id="search-div" class="col-md-6">
+        <form id="search-bar" class="form-inline">
           <input type="text" id="search-input" class="form-control" placeholder="Heathy?" autofocus>
           <button type="submit" class="search-btn btn btn-default">Search</button>
         </form>
@@ -23,14 +24,25 @@
       
       <section class="col-md-6" id="main">
         <div class="food-detail hidden">
-          <h4 class="detail-name">Food name</h4>
-          <h5 class="detail-brand"></h5>
-          <label for="serving-size">Serving Size: </label>
-          <input type="text" class="serving-size" value="1">
-          <span class="detail-cal"><span>0</span> Calories</span>
+          <div class="detail-view">
+            <div>
+              <h4 class="detail-name">Food name</h4>
+              <h5 class="detail-brand"></h5>
+            </div>
+            <div>
+              <span class="detail-cal"></span><br>
+              <small>Calories</small>
+            </div>
+          </div>
+            <form class="form-inline">
+              <label for="serving-size">Serving Size: </label>
+              <input type="text" id="serving-size" value="1">
+              <span class="sub-total"><span>0</span> Calories</span>
+            </form> 
+          
+          <button class="add-btn btn btn-primary hidden">Add</button>
         </div>
-        <button class="add-btn btn btn-default hidden">Add</button>
-      
+
         <ul id="food-list"></ul>
       </section> 
     </div>
@@ -39,9 +51,9 @@
   <script type="text/template" id="food-item">
     <div class="food-container">
       <p><h4><%= title %></h4></p>
-      <span>Quantity: <%= quantity %></span>
+      <span>Serving Size: <%= quantity %></span><br>
       <span>Calorie: <%= calorie %></span>
-      <button class="destroy">Delete</button>
+      <button class="destroy btn btn-danger btn-sm">Delete</button>
     </div> 
   </script>
 
@@ -64,9 +76,12 @@
   <script src="js/lib/backbone.localStorage-min.js"></script>
 
   <script src="js/models/food.js"></script>
+  <script src="js/models/result.js"></script>
   <script src="js/collections/foods.js"></script>
-  <script src="js/views/view-item.js"></script>
+  <script src="js/collections/search-results.js"></script>
+  <script src="js/views/view-food.js"></script>
   <script src="js/views/view-app.js"></script>
+  <script src="js/views/view-search.js"></script>
   <script src="js/app.js"></script>
 </body>
 </html>

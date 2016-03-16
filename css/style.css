@@ -1,29 +1,57 @@
 body {
-    background-color: #eee;
+    background-color: #DFE3BA;
+    font: verdana;
+    /*color: #555753; */
 }
 
 header {
-    background: #b3b3b3
+    /*background: #1D5F72;*/
+    /*color: #FAFBFA;*/
 }
 ul{
   list-style-type: none;
+  background-color: #DFE3BA;
+  padding-left: 0;
 }
 
-form {
-    padding-left: 40px;
+li:hover{
+    background-color: #ead6b7;
 }
+
+/*form {
+    padding-left: 40px;
+}*/
 
 .search-item {
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
     align-items: center;
+    /*outline: 1px solid #aaa;*/
+    padding: 5px;
 }
 
+.detail-view {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.food-detail {
+    background: #fff;
+    margin-left: 5px;
+    width: 450px;
+    float: left;
+    padding: 5px;
+}
+
+#serving-size { 
+    width: 30px;
+}
 .food-container {
     /*outline: 1px solid #aaa;*/
-    width: 350px;
-    height: 80px;
+    width: 450px;
     background-color: #fff;
     float: left;
     margin: 5px;
@@ -34,8 +62,4 @@ form {
     float: right;
     vertical-align: middle;
     margin: 0;
-}
-
-.serving-size { 
-    width: 30px;
 }
