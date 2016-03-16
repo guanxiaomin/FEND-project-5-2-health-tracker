@@ -71,7 +71,10 @@ var app = app || {};
       var cal = parseInt(this.detailCal.text());
 
       var subTotal = qty * cal;
-      this.subCal.text(subTotal);
+      if (qty) {
+        this.subCal.text(subTotal);
+      }
+      
     }
   });
 })(jQuery);

@@ -1,12 +1,12 @@
 body {
-    background-color: #DFE3BA;
+    background-color: #E5EDE8;
     font: verdana;
     /*color: #555753; */
 }
 
 header {
-    /*background: #1D5F72;*/
-    /*color: #FAFBFA;*/
+    background: #34696B;
+    color: #fff;
 }
 ul{
   list-style-type: none;
