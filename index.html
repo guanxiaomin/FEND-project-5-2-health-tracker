@@ -14,56 +14,64 @@
   </header>
   <section id="mytracker" class="container">
     <div class="row">
-      <div id="search-div" class="col-md-6">
+      <div id="search-div" class="col-md-6 col-sm-6 col-xs-12">
         <form id="search-bar" class="form-inline">
           <input type="text" id="search-input" class="form-control" placeholder="Heathy?" autofocus>
           <button type="submit" class="search-btn btn btn-default">Search</button>
-        </form>
-        <ul id="search-results"></ul>
+        </form>        
       </div>
-      
-      <section class="col-md-6" id="main">
+    
+      <div class="col-md-6 col-sm-6 col-xs-12">
         <div class="food-detail hidden">
-          <div class="detail-view">
-            <div>
+          <div class="row detail-wrap">
+            <div class="col-xs-9">
               <h4 class="detail-name">Food name</h4>
               <h5 class="detail-brand"></h5>
             </div>
-            <div>
-              <span class="detail-cal"></span><br>
+            <div class="col-xs-3 text-right">
+              <span class="detail-cal"></span>
               <small>Calories</small>
             </div>
           </div>
-            <form class="form-inline">
-              <label for="serving-size">Serving Size: </label>
+          <div class="row">
+            <form class="form-inline col-xs-6">
+              <label for="serving-size">Servings: </label>
               <input type="text" id="serving-size" value="1">
-              <p class="sub-total"><strong>Sub Total: </strong><span>0</span> Calories</p>
-            </form> 
-          
+            </form>
+            <div class="col-xs-6 text-right">
+              <p class="sub-total"><strong>Sub Total: </strong><span>0</span><small> Calories</small></p>
+            </div>
+          </div>
           <button class="add-btn btn btn-primary hidden">Add</button>
         </div>
-
-        <ul id="food-list"></ul>
-      </section> 
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 col-sm-6 col-xs-12"><ul id="search-results"></ul></div>
+      <div class="col-md-6 col-sm-6 col-xs-12"><ul id="food-list"></ul></div>
     </div>
   </section>
 
   <script type="text/template" id="food-item">
-    <div class="food-container">
-      <p><h4><%= title %></h4></p>
-      <span>Serving Size: <%= quantity %></span><br>
-      <span>Calorie: <%= calorie %></span>
-      <button class="destroy btn btn-danger btn-sm">Delete</button>
-    </div> 
+    <p><h4><%= title %></h4></p>
+    <div class="row">
+      <div class="col-xs-9">
+        <span>Servings: <%= quantity %></span>
+        <p>Calorie: <%= calorie %></p>
+      </div>
+      <div class="col-xs-3">
+        <button class="destroy btn btn-danger btn-sm">Delete</button>
+      </div>
+    </div>
   </script>
 
   <script type="text/template" id="search-template">
     <li class="search-item">
-      <div>
+      <div class="col-xs-9">
         <h4><%= name %></h4>
         <h5><%= brand %></h5>
       </div>
-      <div>
+      <div class="col-xs-3 text-right">
         <span><%= calories %></span><br>
         <small>Calories</small>
       </div>

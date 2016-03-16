@@ -7,6 +7,7 @@ var app = app || {};
   // --------------
   app.FoodView = Backbone.View.extend({
     tagName: 'li',
+    className: 'food-container',
     // Cache the template function for a single item.
     template: _.template( $('#food-item').html() ),
     events:{
