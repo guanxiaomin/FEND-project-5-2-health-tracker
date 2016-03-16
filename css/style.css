@@ -8,19 +8,16 @@ header {
     background: #34696B;
     color: #fff;
 }
-ul{
+
+ul {
   list-style-type: none;
   background-color: #DFE3BA;
   padding-left: 0;
 }
 
-li:hover{
+li:hover {
     background-color: #ead6b7;
 }
-
-/*form {
-    padding-left: 40px;
-}*/
 
 .search-item {
     display: flex;
